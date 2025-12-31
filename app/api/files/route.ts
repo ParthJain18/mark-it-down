@@ -127,7 +127,7 @@ export async function PUT(request: NextRequest) {
 
     const db = await getDb();
     
-    const updateData: any = {
+    const updateData: Partial<File> = {
       updatedAt: new Date(),
     };
 

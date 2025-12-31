@@ -5,7 +5,6 @@ import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ReactMarkdown from 'react-markdown';
@@ -46,15 +45,39 @@ export default function DashboardPage() {
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/login');
+      return;
     }
-  }, [status, router]);
+    
+    if (status !== 'authenticated') {
+      return;
+    }
 
-  useEffect(() => {
-    if (status === 'authenticated') {
-      fetchFolders();
-      fetchFiles();
-    }
-  }, [status]);
+    const loadData = async () => {
+      try {
+        const [foldersRes, filesRes] = await Promise.all([
+          fetch('/api/folders'),
+          fetch('/api/files')
+        ]);
+        
+        const [foldersData, filesData] = await Promise.all([
+          foldersRes.json(),
+          filesRes.json()
+        ]);
+        
+        if (foldersRes.ok) {
+          setFolders(foldersData.folders);
+        }
+        
+        if (filesRes.ok) {
+          setFiles(filesData.files);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    
+    void loadData();
+  }, [status, router]);
 
   const fetchFolders = async () => {
     try {
