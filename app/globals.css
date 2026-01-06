@@ -79,6 +79,222 @@
   }
 }
 
+/* Tiptap Editor Styles - Notion-like */
+.tiptap {
+  outline: none;
+  color: #1f2937;
+}
+
+.dark .tiptap {
+  color: #e5e7eb;
+}
+
+.tiptap > * + * {
+  margin-top: 0.75em;
+}
+
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  line-height: 1.1;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.tiptap h1 {
+  font-size: 2.5em;
+}
+
+.tiptap h2 {
+  font-size: 2em;
+}
+
+.tiptap h3 {
+  font-size: 1.5em;
+}
+
+.tiptap h4 {
+  font-size: 1.25em;
+}
+
+.tiptap h5 {
+  font-size: 1.1em;
+}
+
+.tiptap h6 {
+  font-size: 1em;
+}
+
+.tiptap code {
+  background-color: rgba(135, 131, 120, 0.15);
+  color: #eb5757;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 85%;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.dark .tiptap code {
+  background-color: rgba(135, 131, 120, 0.25);
+  color: #ff6b6b;
+}
+
+.tiptap pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'JetBrainsMono', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.dark .tiptap pre {
+  background: #1a1a1a;
+}
+
+.tiptap pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.tiptap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin: 1em 0;
+}
+
+.tiptap blockquote {
+  padding-left: 1rem;
+  border-left: 3px solid rgba(13, 13, 13, 0.1);
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.dark .tiptap blockquote {
+  border-left-color: rgba(255, 255, 255, 0.2);
+  color: #9ca3af;
+}
+
+.tiptap hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
+.dark .tiptap hr {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.tiptap ul,
+.tiptap ol {
+  padding: 0 1rem;
+  margin: 0.5em 0;
+}
+
+.tiptap li {
+  margin: 0.25em 0;
+}
+
+.tiptap ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+.tiptap ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tiptap ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-top: 0.25em;
+  user-select: none;
+}
+
+.tiptap ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
+
+.tiptap ul[data-type="taskList"] input[type="checkbox"] {
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+}
+
+.tiptap a {
+  color: #3b82f6;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.tiptap a:hover {
+  color: #2563eb;
+}
+
+.dark .tiptap a {
+  color: #60a5fa;
+}
+
+.dark .tiptap a:hover {
+  color: #93c5fd;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.dark .tiptap p.is-editor-empty:first-child::before {
+  color: #6b7280;
+}
+
+.tiptap table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.tiptap table td,
+.tiptap table th {
+  min-width: 1em;
+  border: 2px solid #ced4da;
+  padding: 0.5em 0.75em;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.dark .tiptap table td,
+.dark .tiptap table th {
+  border-color: #4b5563;
+}
+
+.tiptap table th {
+  font-weight: bold;
+  text-align: left;
+  background-color: #f8f9fa;
+}
+
+.dark .tiptap table th {
+  background-color: #1f2937;
+}
+
 /* Markdown styling */
 .prose {
   max-width: 65ch;
