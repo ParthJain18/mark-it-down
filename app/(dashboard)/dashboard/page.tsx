@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { FileExplorer } from '@/components/file-explorer';
 import { RichTextEditor } from '@/components/rich-text-editor';
+import { GitHubSync } from '@/components/github-sync';
 import { LogOut, Clock } from 'lucide-react';
 
 interface FileItem {
@@ -347,6 +348,11 @@ export default function DashboardPage() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* GitHub Sync Panel */}
+        <div className="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-4 overflow-y-auto">
+          <GitHubSync />
         </div>
       </div>
     </div>

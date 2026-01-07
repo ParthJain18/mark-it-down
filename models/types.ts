@@ -5,6 +5,8 @@ export interface User {
   email: string;
   password: string;
   name?: string;
+  githubAccessToken?: string;
+  githubUsername?: string;
   createdAt: Date;
   updatedAt: Date;
 }

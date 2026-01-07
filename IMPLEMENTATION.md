@@ -87,6 +87,8 @@ mark-it-down/
   email: string,
   password: string (hashed),
   name?: string,
+  githubAccessToken?: string,
+  githubUsername?: string,
   createdAt: Date,
   updatedAt: Date
 }
@@ -124,8 +126,9 @@ mark-it-down/
 
 ### Authentication
 - `POST /api/register` - Create new user
-- `POST /api/auth/signin` - Login (NextAuth)
+- `POST /api/auth/signin` - Login (NextAuth with credentials or GitHub)
 - `POST /api/auth/signout` - Logout (NextAuth)
+- `GET /api/auth/callback/github` - GitHub OAuth callback
 
 ### Folders
 - `GET /api/folders` - List all folders for current user
@@ -139,12 +142,21 @@ mark-it-down/
 - `PUT /api/files` - Update file content/name
 - `DELETE /api/files?id={id}` - Delete file
 
+### GitHub Integration
+- `GET /api/github/repos` - List user's GitHub repositories
+- `POST /api/github/repos` - Create new GitHub repository
+- `POST /api/github/sync` - Sync all files to GitHub repository
+
+## Features
+
 ## Features
 
 ### Implemented ✅
 - User registration with email/password
-- User login/logout
+- User login/logout with email/password
+- GitHub OAuth login
 - Session management
+- GitHub access token storage
 - Create/delete folders
 - Navigate folder hierarchy
 - Create markdown files
@@ -157,8 +169,13 @@ mark-it-down/
 - Responsive UI
 - Protected routes
 - Data persistence in MongoDB
+- GitHub repository listing
+- GitHub repository creation
+- Sync entire file structure to GitHub
+- GitHub OAuth integration
 
 ### Future Enhancements 💡
+- Bi-directional GitHub sync (pull changes from GitHub)
 - File search functionality
 - File versioning/history
 - File sharing between users
@@ -167,12 +184,16 @@ mark-it-down/
 - Export files (download)
 - Import files (upload)
 - Drag-and-drop file organization
-- File/folder renaming
+- File/folder renaming (UI improvements)
 - File/folder moving
 - Tags/labels for files
 - Favorites/bookmarks
-- Dark mode toggle
+- Dark mode toggle (already implemented)
 - Mobile app (React Native)
+- Selective file syncing to GitHub
+- Multiple repository support
+- GitHub branch selection
+- Automated periodic syncing
 
 ## Performance Considerations
 
@@ -244,6 +265,10 @@ Required:
 - `MONGODB_URI` - MongoDB connection string
 - `NEXTAUTH_SECRET` - Random secret for JWT
 - `NEXTAUTH_URL` - Application URL
+
+Optional (for GitHub sync):
+- `GITHUB_CLIENT_ID` - GitHub OAuth App Client ID
+- `GITHUB_CLIENT_SECRET` - GitHub OAuth App Client Secret
 
 ## Browser Support
 
