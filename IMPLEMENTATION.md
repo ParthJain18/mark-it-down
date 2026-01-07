@@ -270,10 +270,6 @@ Optional (for GitHub sync):
 - `GITHUB_CLIENT_ID` - GitHub OAuth App Client ID
 - `GITHUB_CLIENT_SECRET` - GitHub OAuth App Client Secret
 
-Optional (for GitHub sync):
-- `GITHUB_CLIENT_ID` - GitHub OAuth App Client ID
-- `GITHUB_CLIENT_SECRET` - GitHub OAuth App Client Secret
-
 ## Browser Support
 
 - Chrome/Edge (latest)
